@@ -7,7 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENV HOST=0.0.0.0
-ENV PORT=$PORT
-
-CMD python3 -m adk web
+CMD uvicorn main:app --host 0.0.0.0 --port $PORT
