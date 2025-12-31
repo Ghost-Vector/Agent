@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from agent import agent
+from agent import root_agent
 
 app = FastAPI(title="ADK Agent API")
 
@@ -13,5 +13,5 @@ def health():
 
 @app.post("/prompt")
 def run_agent(data: Prompt):
-    result = agent.run(data.prompt)
+    result = root_agent.run(data.prompt)
     return {"response": result}
